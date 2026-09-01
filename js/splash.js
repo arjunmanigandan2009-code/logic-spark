@@ -59,7 +59,7 @@
       const href = link.getAttribute('href');
       if (!isInternal(href)) return;
       e.preventDefault();
-      splashGo(href, 5000);
+      splashGo(href, 3000);
     });
   }
 

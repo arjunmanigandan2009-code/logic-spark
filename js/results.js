@@ -9,7 +9,7 @@
   function init() {
     const session = getStoredSession();
     if (!session) {
-      splashGo('login.html', 5000);
+      splashGo('login.html', 3000);
       return;
     }
 

@@ -33,7 +33,7 @@ async function getUserProfile(userId) {
 function requireAuth() {
   const session = localStorage.getItem('logicspark_session');
   if (!session) {
-    splashGo('login.html', 5000);
+    splashGo('login.html', 3000);
     return false;
   }
   return true;

@@ -46,7 +46,7 @@
   async function init() {
     session = getStoredSession();
     if (!session) {
-      splashGo('login.html', 5000);
+      splashGo('login.html', 3000);
       return;
     }
 
@@ -311,7 +311,7 @@
       };
 
       localStorage.setItem('logicspark_last_result', JSON.stringify(resultData));
-      splashGo('results.html', 5000);
+      splashGo('results.html', 3000);
 
     } catch (e) {
       console.error('Error saving quiz results:', e);
@@ -331,7 +331,7 @@
       };
 
       localStorage.setItem('logicspark_last_result', JSON.stringify(resultData));
-      splashGo('results.html', 5000);
+      splashGo('results.html', 3000);
     }
   }
 
