@@ -2429,3 +2429,34 @@ body {
   position: relative;
   z-index: 1;
 }
+
+/* ======================================================================
+   NAVBAR BUTTONS — always one line, never squished on small screens
+   ====================================================================== */
+.btn {
+  white-space: nowrap;
+}
+
+.nav-auth {
+  flex-shrink: 0;
+}
+
+.nav-auth .btn {
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 420px) {
+  .brand-text .brand-credit {
+    display: none;
+  }
+
+  .navbar {
+    padding: 0 12px;
+  }
+
+  .nav-auth .btn {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+}
