@@ -84,7 +84,7 @@ async function signOut() {
   const client = getSupabase();
   await client.auth.signOut();
   clearSession();
-  splashGo('login.html', 3000);
+  window.location.href = '';;
 }
 
 async function getProfile() {
@@ -106,7 +106,7 @@ async function getProfile() {
 async function ensureAuth() {
   const session = getStoredSession();
   if (!session) {
-    splashGo('login.html', 3000);
+    window.location.href = '';;
     return null;
   }
   return session;

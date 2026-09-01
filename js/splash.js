@@ -40,36 +40,7 @@
     });
   }
 
-  function isInternal(href) {
-    if (!href) return false;
-    const trimmed = href.trim();
-    if (trimmed === '#' || trimmed === '' ) return false;
-    if (/^(https?:|mailto:|tel:|javascript:|data:)/i.test(trimmed)) return false;
-    return true;
-  }
-
-  function initSplashLinks() {
-    document.addEventListener('click', function(e) {
-      if (splashActive) {
-        e.preventDefault();
-        return;
-      }
-      const link = e.target.closest('a');
-      if (!link) return;
-      const href = link.getAttribute('href');
-      if (!isInternal(href)) return;
-      e.preventDefault();
-      splashGo(href, 3000);
-    });
-  }
-
   window.showSplash = showSplash;
   window.splashGo = splashGo;
   window.splashActive = function() { return splashActive; };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSplashLinks);
-  } else {
-    initSplashLinks();
-  }
 })();

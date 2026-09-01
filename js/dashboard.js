@@ -9,7 +9,7 @@
   async function init() {
     const session = getStoredSession();
     if (!session) {
-      splashGo('login.html', 3000);
+      window.location.href = '';;
       return;
     }
 

@@ -46,7 +46,7 @@
   async function init() {
     session = getStoredSession();
     if (!session) {
-      splashGo('login.html', 3000);
+      window.location.href = '';;
       return;
     }
 
@@ -60,7 +60,7 @@
 
     els.startBtn.addEventListener('click', function() {
       disableButton(els.startBtn);
-      showSplash(5000, startQuiz);
+      startQuiz();
     });
     els.nextBtn.addEventListener('click', nextQuestion);
     els.hintToggle.addEventListener('click', toggleHint);
@@ -311,7 +311,7 @@
       };
 
       localStorage.setItem('logicspark_last_result', JSON.stringify(resultData));
-      splashGo('results.html', 3000);
+      window.location.href = '';;
 
     } catch (e) {
       console.error('Error saving quiz results:', e);
@@ -331,7 +331,7 @@
       };
 
       localStorage.setItem('logicspark_last_result', JSON.stringify(resultData));
-      splashGo('results.html', 3000);
+      window.location.href = '';;
     }
   }
 

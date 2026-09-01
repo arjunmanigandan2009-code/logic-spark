@@ -4,7 +4,7 @@
   async function init() {
     const session = getStoredSession();
     if (!session) {
-      splashGo('login.html', 3000);
+      window.location.href = '';;
       return;
     }
 
@@ -34,7 +34,7 @@
       disableButton(logoutBtn);
       signOut().catch(function() {
         clearSession();
-        splashGo('login.html', 3000);
+        window.location.href = '';;
       });
     });
 
