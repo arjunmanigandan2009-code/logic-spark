@@ -180,4 +180,4 @@ For image-based questions, provide an `image_url` (host images somewhere accessi
 
 ## License
 
-All Rights Reserved. Developed by ARJUN M. This project is for educational purposes. Built for competitive exam preparation.
+This project is for educational purposes. Built for competitive exam preparation.
