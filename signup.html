@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - LogicSpark</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="auth-nav">
+    <a href="index.html" class="nav-brand">
+      <span class="logo-icon">&#9889;</span>
+      <span class="brand-text">
+        <span class="brand-name">LogicSpark</span>
+        <span class="brand-credit">Developed by ARJUN M</span>
+      </span>
+    </a>
+  </nav>
+
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="logo">&#9889; LogicSpark</div>
+        <h1>Create Account</h1>
+        <p>Start your logical reasoning journey</p>
+      </div>
+
+      <div id="signupMessage"></div>
+
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="signupUsername">Username</label>
+          <input type="text" id="signupUsername" placeholder="Choose a username" required minlength="3" maxlength="20" autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" placeholder="Enter your email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <input type="password" id="signupPassword" placeholder="Create a password (min 6 characters)" required minlength="6" autocomplete="new-password">
+        </div>
+        <div class="form-group">
+          <label for="signupConfirm">Confirm Password</label>
+          <input type="password" id="signupConfirm" placeholder="Confirm your password" required autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="signupBtn">Create Account</button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Already have an account? <a href="login.html">Log In</a></p>
+        <p style="margin-top: 8px;">Developed by ARJUN M</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/splash.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('logicspark_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+
+      const session = localStorage.getItem('logicspark_session');
+      if (session) {
+        splashGo('dashboard.html', 5000);
+        return;
+      }
+
+      const form = document.getElementById('signupForm');
+      const btn = document.getElementById('signupBtn');
+      const msgEl = document.getElementById('signupMessage');
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        clearFieldErrors('signupForm');
+        msgEl.innerHTML = '';
+
+        const username = document.getElementById('signupUsername').value.trim();
+        const email = document.getElementById('signupEmail').value.trim();
+        const password = document.getElementById('signupPassword').value;
+        const confirm = document.getElementById('signupConfirm').value;
+
+        let hasError = false;
+
+        if (!username || username.length < 3) {
+          showFieldError('signupUsername', 'Username must be at least 3 characters.');
+          hasError = true;
+        } else if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+          showFieldError('signupUsername', 'Username can only contain letters, numbers, and underscores.');
+          hasError = true;
+        }
+
+        if (!email || !email.includes('@')) {
+          showFieldError('signupEmail', 'Please enter a valid email address.');
+          hasError = true;
+        }
+
+        if (password.length < 6) {
+          showFieldError('signupPassword', 'Password must be at least 6 characters.');
+          hasError = true;
+        }
+
+        if (password !== confirm) {
+          showFieldError('signupConfirm', 'Passwords do not match.');
+          hasError = true;
+        }
+
+        if (hasError) return;
+
+        disableButton(btn);
+
+        try {
+          const result = await signUp(username, email, password);
+
+          if (result.user && !result.session) {
+            msgEl.innerHTML = '<div class="form-message success">Account created! Please check your email to confirm your account, then log in. You can also try logging in now.</div>';
+            form.reset();
+          } else {
+            splashGo('dashboard.html', 5000);
+          }
+        } catch (err) {
+          enableButton(btn);
+          let msg = 'Signup failed. Please try again.';
+          if (err.message.includes('already registered') || err.message.includes('already exists')) {
+            msg = 'An account with this email already exists.';
+          } else if (err.message.includes('Username')) {
+            msg = 'This username is already taken. Please choose another.';
+          } else if (err.message.includes('valid email')) {
+            msg = 'Please enter a valid email address.';
+          } else if (err.message.includes('password')) {
+            msg = 'Password is too weak. Please use at least 6 characters.';
+          }
+          msgEl.innerHTML = '<div class="form-message error">' + msg + '</div>';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

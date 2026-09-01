@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice - LogicSpark</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="nav-brand">
+      <span class="logo-icon">&#9889;</span>
+      <span class="brand-text">
+        <span class="brand-name">LogicSpark</span>
+        <span class="brand-credit">Developed by ARJUN M</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">&#127968; Home</a></li>
+      <li><a href="quiz.html" class="active">&#128218; Practice</a></li>
+      <li><a href="quiz.html?view=categories">&#128196; Categories</a></li>
+      <li><a href="settings.html">&#9881; Settings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <a href="settings.html" class="btn btn-secondary btn-sm">Profile</a>
+    </div>
+  </nav>
+
+  <nav class="bottom-nav">
+    <ul class="bottom-nav-items">
+      <li><a href="dashboard.html"><span class="nav-icon">&#127968;</span>Home</a></li>
+      <li><a href="quiz.html" class="active"><span class="nav-icon">&#128218;</span>Practice</a></li>
+      <li><a href="quiz.html?view=categories"><span class="nav-icon">&#128196;</span>Categories</a></li>
+      <li><a href="settings.html"><span class="nav-icon">&#9881;</span>Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content has-bottom-nav">
+    <div class="container">
+      <!-- Quiz Config Screen -->
+      <div id="quizConfig">
+        <h1 class="page-title">Practice Quiz</h1>
+        <p class="page-subtitle">Configure your quiz and start practicing</p>
+
+        <div class="quiz-config card">
+          <div class="config-option">
+            <label for="selectCategory">Category</label>
+            <select id="selectCategory">
+              <option value="All">All Categories</option>
+              <option value="Number & Pattern Reasoning">Number & Pattern Reasoning</option>
+              <option value="Verbal Reasoning">Verbal Reasoning</option>
+              <option value="Logical Reasoning">Logical Reasoning</option>
+              <option value="Non-Verbal Reasoning">Non-Verbal Reasoning</option>
+              <option value="Spatial Reasoning">Spatial Reasoning</option>
+              <option value="Arrangement & Puzzle Reasoning">Arrangement & Puzzles</option>
+            </select>
+          </div>
+
+          <div class="config-option">
+            <label for="selectDifficulty">Difficulty</label>
+            <select id="selectDifficulty">
+              <option value="Mixed">Mixed (All Levels)</option>
+              <option value="Easy">Easy</option>
+              <option value="Medium">Medium</option>
+              <option value="Hard">Hard</option>
+              <option value="Expert">Expert</option>
+            </select>
+          </div>
+
+          <div class="config-option">
+            <label for="selectCount">Number of Questions</label>
+            <select id="selectCount">
+              <option value="5">5 Questions</option>
+              <option value="10" selected>10 Questions</option>
+              <option value="15">15 Questions</option>
+              <option value="20">20 Questions</option>
+            </select>
+          </div>
+
+          <div id="configMessage"></div>
+
+          <button class="btn btn-primary btn-lg btn-block mt-16" id="startQuizBtn">Start Quiz</button>
+        </div>
+      </div>
+
+      <!-- Quiz Player Screen -->
+      <div id="quizPlayer" class="quiz-player hidden">
+        <div class="quiz-header">
+          <div>
+            <span class="question-counter" id="questionCounter">Question 1 of 10</span>
+            <span class="difficulty-badge" id="questionDifficulty"></span>
+          </div>
+          <div class="quiz-score">Score: <span id="currentScore">0</span></div>
+          <div class="quiz-timer" id="quizTimer">
+            <span>&#9201;</span>
+            <span id="timerDisplay">0:00</span>
+          </div>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="question-card">
+          <div class="question-text" id="questionText"></div>
+          <div class="question-image hidden" id="questionImage">
+            <img id="questionImg" src="" alt="Question image">
+          </div>
+          <button class="hint-toggle hidden" id="hintToggle">&#128161; Show Hint</button>
+          <div class="question-hint hidden" id="questionHint">
+            <strong>Hint:</strong> <span id="hintText"></span>
+          </div>
+        </div>
+
+        <div class="options-grid" id="optionsGrid"></div>
+
+        <div class="quiz-feedback" id="quizFeedback">
+          <div id="feedbackText"></div>
+          <div class="explanation" id="feedbackExplanation"></div>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn btn-primary btn-lg hidden" id="nextBtn">Next Question &#10132;</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 LogicSpark &middot; Developed by ARJUN M</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/splash.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

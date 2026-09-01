@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In - LogicSpark</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="auth-nav">
+    <a href="index.html" class="nav-brand">
+      <span class="logo-icon">&#9889;</span>
+      <span class="brand-text">
+        <span class="brand-name">LogicSpark</span>
+        <span class="brand-credit">Developed by ARJUN M</span>
+      </span>
+    </a>
+  </nav>
+
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="logo">&#9889; LogicSpark</div>
+        <h1>Welcome Back</h1>
+        <p>Log in to continue your practice</p>
+      </div>
+
+      <div id="loginMessage"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="loginEmail">Email or Username</label>
+          <input type="text" id="loginEmail" placeholder="Enter your email or username" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="loginBtn">Log In</button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        <p style="margin-top: 8px;">Developed by ARJUN M</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/splash.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('logicspark_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+
+      const session = localStorage.getItem('logicspark_session');
+      if (session) {
+        splashGo('dashboard.html', 5000);
+        return;
+      }
+
+      const form = document.getElementById('loginForm');
+      const btn = document.getElementById('loginBtn');
+      const msgEl = document.getElementById('loginMessage');
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        clearFieldErrors('loginForm');
+        msgEl.innerHTML = '';
+
+        const emailOrUsername = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value;
+
+        if (!emailOrUsername) {
+          showFieldError('loginEmail', 'Please enter your email or username.');
+          return;
+        }
+        if (!password) {
+          showFieldError('loginPassword', 'Please enter your password.');
+          return;
+        }
+
+        disableButton(btn);
+
+        try {
+          await signIn(emailOrUsername, password);
+          splashGo('dashboard.html', 5000);
+        } catch (err) {
+          enableButton(btn);
+          let msg = 'Login failed. Please check your credentials and try again.';
+          if (err.message.includes('Invalid login')) {
+            msg = 'Invalid email or password. Please try again.';
+          } else if (err.message.includes('No account found')) {
+            msg = 'No account found with that username.';
+          } else if (err.message.includes('Email not confirmed')) {
+            msg = 'Please confirm your email before logging in.';
+          }
+          msgEl.innerHTML = '<div class="form-message error">' + msg + '</div>';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

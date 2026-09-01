@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - LogicSpark</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="nav-brand">
+      <span class="logo-icon">&#9889;</span>
+      <span class="brand-text">
+        <span class="brand-name">LogicSpark</span>
+        <span class="brand-credit">Developed by ARJUN M</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html" class="active">&#127968; Home</a></li>
+      <li><a href="quiz.html">&#128218; Practice</a></li>
+      <li><a href="quiz.html?view=categories">&#128196; Categories</a></li>
+      <li><a href="settings.html">&#9881; Settings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <a href="settings.html" class="btn btn-secondary btn-sm">Profile</a>
+    </div>
+  </nav>
+
+  <nav class="bottom-nav">
+    <ul class="bottom-nav-items">
+      <li><a href="dashboard.html" class="active"><span class="nav-icon">&#127968;</span>Home</a></li>
+      <li><a href="quiz.html"><span class="nav-icon">&#128218;</span>Practice</a></li>
+      <li><a href="quiz.html?view=categories"><span class="nav-icon">&#128196;</span>Categories</a></li>
+      <li><a href="settings.html"><span class="nav-icon">&#9881;</span>Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content has-bottom-nav">
+    <div class="container">
+      <div class="dashboard-welcome" id="welcomeSection">
+        <h1 id="welcomeMessage">Welcome!</h1>
+        <p>Track your progress and start a new practice session</p>
+      </div>
+
+      <div class="stat-grid" id="statsGrid">
+        <div class="stat-card">
+          <div class="stat-icon">&#128218;</div>
+          <div class="stat-value" id="statQuizzes">0</div>
+          <div class="stat-label">Quizzes Completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">&#128221;</div>
+          <div class="stat-value" id="statQuestions">0</div>
+          <div class="stat-label">Questions Attempted</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">&#9989;</div>
+          <div class="stat-value" id="statCorrect">0</div>
+          <div class="stat-label">Correct Answers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">&#128200;</div>
+          <div class="stat-value" id="statAccuracy">0%</div>
+          <div class="stat-label">Overall Accuracy</div>
+        </div>
+      </div>
+
+      <div class="stat-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div class="stat-card">
+          <div class="stat-icon">&#127942;</div>
+          <div class="stat-value" id="statBest">--</div>
+          <div class="stat-label">Best Score</div>
+        </div>
+        <div class="card" style="display: flex; align-items: center; justify-content: center; gap: 16px; padding: 20px;">
+          <a href="quiz.html" class="btn btn-primary btn-lg">Start Practice &#10132;</a>
+        </div>
+      </div>
+
+      <div class="card mt-32">
+        <div class="section-header">
+          <h2>Recent Quiz Results</h2>
+        </div>
+        <div id="recentQuizzes">
+          <div class="loader"><div class="spinner"></div><p>Loading...</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 LogicSpark &middot; Developed by ARJUN M</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/splash.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

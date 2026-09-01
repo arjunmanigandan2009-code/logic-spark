@@ -1,0 +1,2 @@
+const SUPABASE_URL = 'https://dkhpnoasjsccjeweowho.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRraHBub2FzanNjY2pld2Vvd2hvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNjcxOTAsImV4cCI6MjEwMzg0MzE5MH0.9J9SJ-dS63vQ8odipU43fO_9pTMo2tr_f39wPD05anA';

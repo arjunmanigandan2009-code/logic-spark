@@ -1,0 +1,274 @@
+/* LogicSpark - Responsive Styles */
+
+/* ===== TABLET (max-width: 768px) ===== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-auth .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .bottom-nav {
+    display: block;
+  }
+
+  .main-content {
+    padding-top: calc(var(--nav-height) + 16px);
+    padding-bottom: calc(var(--bottom-nav-height) + 16px);
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 60px 16px 40px;
+  }
+
+  .features {
+    padding: 40px 16px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .quiz-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .option-btn {
+    padding: 14px 16px;
+  }
+
+  .question-card {
+    padding: 24px 20px;
+  }
+
+  .review-answers {
+    grid-template-columns: 1fr;
+  }
+
+  .score-display {
+    gap: 20px;
+  }
+
+  .score-item .score-num {
+    font-size: 2rem;
+  }
+
+  .results-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .results-actions .btn {
+    width: 100%;
+  }
+
+  .auth-card {
+    padding: 32px 24px;
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-welcome h1 {
+    font-size: 1.5rem;
+  }
+
+  .quiz-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* ===== MOBILE (max-width: 480px) ===== */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 16px 12px;
+  }
+
+  .stat-value {
+    font-size: 1.6rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .auth-card {
+    padding: 24px 20px;
+    border-radius: var(--radius);
+  }
+
+  .auth-card .auth-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .btn-lg {
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+
+  .question-text {
+    font-size: 1.05rem;
+  }
+
+  .option-btn {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .option-label {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .score-item .score-num {
+    font-size: 1.5rem;
+  }
+
+  .results-title {
+    font-size: 1.5rem;
+  }
+
+  .setting-item {
+    padding: 12px 0;
+  }
+
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .profile-info {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .profile-avatar {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== LARGE SCREENS (min-width: 1200px) ===== */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===== LANDSCAPE MOBILE ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .auth-page {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .auth-card {
+    padding: 20px;
+  }
+
+  .hero {
+    padding: 20px 16px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .bottom-nav,
+  .quiz-actions,
+  .results-actions {
+    display: none !important;
+  }
+
+  .main-content {
+    padding-top: 0;
+  }
+}

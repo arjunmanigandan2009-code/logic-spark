@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - LogicSpark</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="dashboard.html" class="nav-brand">
+      <span class="logo-icon">&#9889;</span>
+      <span class="brand-text">
+        <span class="brand-name">LogicSpark</span>
+        <span class="brand-credit">Developed by ARJUN M</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">&#127968; Home</a></li>
+      <li><a href="quiz.html">&#128218; Practice</a></li>
+      <li><a href="quiz.html?view=categories">&#128196; Categories</a></li>
+      <li><a href="settings.html" class="active">&#9881; Settings</a></li>
+    </ul>
+    <div class="nav-auth">
+      <a href="settings.html" class="btn btn-secondary btn-sm">Profile</a>
+    </div>
+  </nav>
+
+  <nav class="bottom-nav">
+    <ul class="bottom-nav-items">
+      <li><a href="dashboard.html"><span class="nav-icon">&#127968;</span>Home</a></li>
+      <li><a href="quiz.html"><span class="nav-icon">&#128218;</span>Practice</a></li>
+      <li><a href="quiz.html?view=categories"><span class="nav-icon">&#128196;</span>Categories</a></li>
+      <li><a href="settings.html" class="active"><span class="nav-icon">&#9881;</span>Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content has-bottom-nav">
+    <div class="container">
+      <h1 class="page-title">Settings</h1>
+      <p class="page-subtitle">Manage your account and preferences</p>
+
+      <div class="settings-section">
+        <div class="profile-info" id="profileCard">
+          <div class="profile-avatar" id="profileAvatar">?</div>
+          <div class="profile-details">
+            <h3 id="profileName">Loading...</h3>
+            <p id="profileEmail"></p>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Appearance</h3>
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label">Dark Mode</div>
+              <div class="setting-desc">Switch between light and dark theme</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="themeToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>Account</h3>
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label">Profile</div>
+              <div class="setting-desc" id="profileInfo">Loading...</div>
+            </div>
+          </div>
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label">Logout</div>
+              <div class="setting-desc">Sign out of your account</div>
+            </div>
+            <button class="btn btn-danger btn-sm" id="logoutBtn">Logout</button>
+          </div>
+        </div>
+
+        <div class="settings-group">
+          <h3>About</h3>
+          <div class="setting-item">
+            <div class="setting-info">
+              <div class="setting-label">LogicSpark</div>
+              <div class="setting-desc">Version 1.0.0 &mdash; A logical reasoning quiz platform for competitive exam preparation. Sharpen your mind with pattern recognition, verbal reasoning, spatial reasoning, and logical deduction.</div>
+              <div class="setting-desc" style="margin-top: 6px;">Developed by ARJUN M</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 LogicSpark &middot; Developed by ARJUN M</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/splash.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

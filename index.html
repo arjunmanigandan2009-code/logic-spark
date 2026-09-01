@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LogicSpark - Sharpen Your Mind</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="logo-icon">&#9889;</span>
+      <span class="brand-text">
+        <span class="brand-name">LogicSpark</span>
+        <span class="brand-credit">Developed by ARJUN M</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks"></ul>
+    <div class="nav-auth" id="navAuth">
+      <a href="login.html" class="btn btn-secondary btn-sm">Log In</a>
+      <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Sharpen Your <span>Logical Reasoning</span></h1>
+    <p>Master competitive exam preparation with thousands of logical reasoning, aptitude, and pattern questions. Practice daily and track your progress.</p>
+    <div class="hero-buttons">
+      <a href="signup.html" class="btn btn-primary btn-lg" id="heroStartBtn">Get Started Free</a>
+      <a href="#features" class="btn btn-outline btn-lg">Learn More</a>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#128218;</div>
+        <h3>Logical Reasoning</h3>
+        <p>Practice statements, conclusions, deductions, and logical puzzles designed for competitive exams.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128161;</div>
+        <h3>Pattern Recognition</h3>
+        <p>Solve number series, missing patterns, and mathematical sequences to boost your analytical skills.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128163;</div>
+        <h3>Verbal Reasoning</h3>
+        <p>Master analogies, coding-decoding, classification, and alphabet-based reasoning problems.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128314;</div>
+        <h3>Spatial Reasoning</h3>
+        <p>Practice direction sense, position tracking, cube problems, and spatial visualization.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128202;</div>
+        <h3>Track Progress</h3>
+        <p>Monitor your scores, accuracy, and improvement over time with detailed progress tracking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#11088;</div>
+        <h3>Multiple Difficulty Levels</h3>
+        <p>Choose from Easy, Medium, Hard, and Expert levels to match your preparation needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="text-center mb-32">
+      <h2 class="page-title">Start Sharpening Your Mind Today</h2>
+      <p class="page-subtitle">Join students who are already improving their reasoning skills</p>
+      <a href="signup.html" class="btn btn-primary btn-lg">Create Free Account</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 LogicSpark. Built for students preparing for competitive examinations.</p>
+    <p style="margin-top: 6px;">Developed by ARJUN M</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/splash.js"></script>
+  <script>
+    (function() {
+      const session = localStorage.getItem('logicspark_session');
+      if (session) {
+        const navAuth = document.getElementById('navAuth');
+        navAuth.innerHTML = '<a href="dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>';
+        document.getElementById('heroStartBtn').href = 'dashboard.html';
+        document.getElementById('heroStartBtn').textContent = 'Go to Dashboard';
+      }
+
+      const savedTheme = localStorage.getItem('logicspark_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+
+      window.addEventListener('DOMContentLoaded', function() {
+        showSplash(6000);
+      });
+    })();
+  </script>
+</body>
+</html>
