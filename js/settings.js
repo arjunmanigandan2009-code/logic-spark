@@ -21,6 +21,15 @@
       localStorage.setItem('logicspark_theme', theme);
     });
 
+    const particleToggle = document.getElementById('particleToggle');
+    particleToggle.checked = localStorage.getItem('logicspark_particles') !== 'off';
+    particleToggle.addEventListener('change', function() {
+      localStorage.setItem('logicspark_particles', particleToggle.checked ? 'on' : 'off');
+      if (window.LogicSparkParticles) {
+        window.LogicSparkParticles.refresh();
+      }
+    });
+
     logoutBtn.addEventListener('click', function() {
       disableButton(logoutBtn);
       signOut().catch(function() {
