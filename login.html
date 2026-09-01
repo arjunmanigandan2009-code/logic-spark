@@ -21,7 +21,7 @@
   <div class="auth-page">
     <div class="auth-card">
       <div class="auth-header">
-        <div class="logo">&#9889; LogicSpark</div>
+        
         <h1>Welcome Back</h1>
         <p>Log in to continue your practice</p>
       </div>
@@ -61,7 +61,7 @@
 
       const session = localStorage.getItem('logicspark_session');
       if (session) {
-        splashGo('dashboard.html', 5000);
+        splashGo('dashboard.html', 3000);
         return;
       }
 
@@ -90,7 +90,7 @@
 
         try {
           await signIn(emailOrUsername, password);
-          splashGo('dashboard.html', 5000);
+          splashGo('dashboard.html', 3000);
         } catch (err) {
           enableButton(btn);
           let msg = 'Login failed. Please check your credentials and try again.';

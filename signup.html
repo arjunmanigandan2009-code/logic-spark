@@ -69,7 +69,7 @@
 
       const session = localStorage.getItem('logicspark_session');
       if (session) {
-        splashGo('dashboard.html', 5000);
+        splashGo('dashboard.html', 3000);
         return;
       }
 
@@ -123,7 +123,7 @@
             msgEl.innerHTML = '<div class="form-message success">Account created! Please check your email to confirm your account, then log in. You can also try logging in now.</div>';
             form.reset();
           } else {
-            splashGo('dashboard.html', 5000);
+            splashGo('dashboard.html', 3000);
           }
         } catch (err) {
           enableButton(btn);
