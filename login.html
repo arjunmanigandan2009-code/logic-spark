@@ -62,7 +62,7 @@
 
       const session = localStorage.getItem('logicspark_session');
       if (session) {
-        window.location.href = '';;
+        window.location.href = 'dashboard.html';
         return;
       }
 
@@ -91,7 +91,7 @@
 
         try {
           await signIn(emailOrUsername, password);
-          window.location.href = '';;
+          window.location.href = 'dashboard.html';
         } catch (err) {
           enableButton(btn);
           let msg = 'Login failed. Please check your credentials and try again.';
