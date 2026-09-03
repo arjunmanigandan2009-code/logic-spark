@@ -1,6 +1,11 @@
 async function signUp(username, email, password) {
   const client = getSupabase();
 
+  const usernameTaken = await checkUsernameAvailable(username);
+  if (usernameTaken) {
+    throw new Error('That username is already taken. Please choose another.');
+  }
+
   const { data, error } = await client.auth.signUp({
     email: email,
     password: password,

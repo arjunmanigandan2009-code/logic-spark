@@ -52,6 +52,21 @@ function clearSession() {
   localStorage.removeItem('logicspark_session');
 }
 
+async function checkUsernameAvailable(username) {
+  const client = getSupabase();
+  try {
+    const { data, error } = await client.rpc('username_exists', { check_username: username });
+    if (error) {
+      console.warn('username_exists RPC unavailable:', error.message);
+      return false;
+    }
+    return data === true;
+  } catch (e) {
+    console.warn('username check failed:', e);
+    return false;
+  }
+}
+
 function showLoading(containerId) {
   const el = document.getElementById(containerId);
   if (el) {
