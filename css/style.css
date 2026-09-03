@@ -1858,7 +1858,7 @@ img {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: calc(var(--nav-height) + 24px) 20px 32px;
   background: var(--bg-primary);
 }
 
@@ -1885,6 +1885,21 @@ img {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.auth-card .auth-header .logo .logo-icon {
+  font-size: 1.8rem;
+}
+
+.auth-card .auth-header .brand-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .auth-card .auth-header h1 {
