@@ -9,7 +9,7 @@
   async function init() {
     const session = getStoredSession();
     if (!session) {
-      window.location.href = '';;
+      window.location.href = 'login.html';
       return;
     }
 

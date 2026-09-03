@@ -46,7 +46,7 @@
   async function init() {
     session = getStoredSession();
     if (!session) {
-      window.location.href = '';;
+      window.location.href = 'login.html';
       return;
     }
 
@@ -311,7 +311,7 @@
       };
 
       localStorage.setItem('logicspark_last_result', JSON.stringify(resultData));
-      window.location.href = '';;
+      window.location.href = 'results.html';
 
     } catch (e) {
       console.error('Error saving quiz results:', e);
@@ -331,7 +331,7 @@
       };
 
       localStorage.setItem('logicspark_last_result', JSON.stringify(resultData));
-      window.location.href = '';;
+      window.location.href = 'results.html';
     }
   }
 

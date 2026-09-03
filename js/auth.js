@@ -84,7 +84,7 @@ async function signOut() {
   const client = getSupabase();
   await client.auth.signOut();
   clearSession();
-  window.location.href = '';;
+  window.location.href = 'login.html';
 }
 
 async function getProfile() {
@@ -106,7 +106,7 @@ async function getProfile() {
 async function ensureAuth() {
   const session = getStoredSession();
   if (!session) {
-    window.location.href = '';;
+    window.location.href = 'login.html';
     return null;
   }
   return session;
